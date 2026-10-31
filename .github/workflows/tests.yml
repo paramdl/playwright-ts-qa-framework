@@ -29,7 +29,7 @@ jobs:
         if: matrix.project != 'api'
         run: npx playwright install --with-deps ${{ matrix.project == 'ui-webkit' && 'webkit chromium' || 'chromium' }}
       - run: npx playwright test --project=${{ matrix.project }}
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         if: ${{ !cancelled() }}
         with:
           name: report-${{ matrix.project }}
